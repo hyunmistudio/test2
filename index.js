@@ -17,7 +17,7 @@ client.on("guildMemberAdd", (member) => {
 
   welcomeChannel.send(`<@${newUser.id}> ${welcomeChannelComment}\n`);
 
-  member.addRole(guild.roles.find(role => role.name == "게스트"));
+  member.addRole(guild.roles.find(role => role.name == "심청영"));
 });
 
 // client.on("guildMemberRemove", (member) => {
@@ -40,10 +40,10 @@ client.on('message', (message) => {
   }
 });
 
-if(message.content.startsWith('%청소')) {
+if(message.content.startsWith('!청소')) {
   if(checkPermission(message)) return
 
-  var clearLine = message.content.slice('%청소 '.length);
+  var clearLine = message.content.slice('!청소 '.length);
   var isNum = !isNaN(clearLine)
 
   if(isNum && (clearLine <= 0 || 100 < clearLine)) {
@@ -53,7 +53,7 @@ if(message.content.startsWith('%청소')) {
     if(message.content.split('<@').length == 2) {
       if(isNaN(message.content.split(' ')[2])) return;
 
-      var user = message.content.split(' ')[1].split('<@%')[1].split('>')[0];
+      var user = message.content.split(' ')[1].split('<@!')[1].split('>')[0];
       var count = parseInt(message.content.split(' ')[2])+1;
       const _limit = 10;
       let _cnt = 0;
