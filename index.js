@@ -43,6 +43,10 @@ client.on('message', (message) => {
     message.reply('끼에에에에엑 시심님 사랑해요🥕');
   }
 
+  if(message.content == '!오뱅') {
+    message.reply('저도 몰라요 심님이 키고싶을떄 키시는거에요');
+  }
+
   else if(message.content.startsWith('!청소')) {
     if(message.channel.type == 'dm') {
       return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
