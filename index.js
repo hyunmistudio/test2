@@ -8,6 +8,7 @@ const welcomeChannelComment = "(아/야) 새로운 심청이는 언제나 환영
 
 client.on('ready', () => {
   console.log('켰다.');
+  client.user.setPresence({ game: { name: 'My name is 띠띰이 yas~' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -46,6 +47,42 @@ client.on('message', (message) => {
   if(message.content == '!오뱅') {
     message.reply('저도 몰라요 심님이 키고싶을떄 키시는거에요');
   }
+
+  if(message.content == '!초대코드') {
+    message.reply('https://discord.gg/y8Kcpp8');
+  }
+
+  if(message.content == '!si') {
+    let embed = new Discord.RichEmbed()
+    let img = 'https://cdn.discordapp.com/avatars/706496398140375050/5ca9a59aadf17ed193ef6d0224cc11d5.png?size=128';
+    var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
+    embed.setColor('#186de6')
+    embed.setAuthor('server info of 띠띰이 BOT', img)
+    embed.setFooter(`띠띰이 ❤️`)
+    embed.addBlankField()
+    embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
+    embed.addField('running time', `${duration}`, true);
+    embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
+    embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
+    // embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
+    embed.addField('Discord.js',   `v${Discord.version}`, true);
+    embed.addField('Node',         `${process.version}`, true);
+    
+    let arr = client.guilds.array();
+    let list = '';
+    list = `\`\`\`css\n`;
+    
+    for(let i=0;i<arr.length;i++) {
+      // list += `${arr[i].name} - ${arr[i].id}\n`
+      list += `${arr[i].name}\n`
+    }
+    list += `\`\`\`\n`
+    embed.addField('list:',        `${list}`);
+
+    embed.setTimestamp()
+    message.channel.send(embed);
+  }
+
 
   else if(message.content.startsWith('!청소')) {
     if(message.channel.type == 'dm') {
