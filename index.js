@@ -64,11 +64,15 @@ client.on('message', (message) => {
     message.reply('https://www.twitch.tv/dkfqnfl11');
   }
 
+  if(message.content == '!장비') {
+    message.reply('라이젠 1700/ gtx1070 / Ram 16gb / ssd120 / hdd 1tb / 뷰소닉 XG2401 144hz');
+  }
+
   if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
     let img = 'https://cdn.discordapp.com/icons/713394185562226738/98f93c6f77408cd150eee96da1cb8d03.webp?size=128';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
-    embed.setColor('#186de6')
+    embed.setColor('#36EAFD')
     embed.setAuthor('server info of 띠띰이 BOT', img)
     embed.setFooter(`띠띰이 ❤️`)
     embed.addBlankField()
