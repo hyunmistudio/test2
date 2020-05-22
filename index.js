@@ -8,7 +8,7 @@ const welcomeChannelComment = "(아/야) 새로운 심청이는 언제나 환영
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: 'My name is 띠띰이 yas~' }, status: 'online' })
+  client.user.setPresence({ game: { name: '우헤헤헤헤헿' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -52,9 +52,21 @@ client.on('message', (message) => {
     message.reply('https://discord.gg/y8Kcpp8');
   }
 
+  if(message.content == '!감도') {
+    message.reply('DPI 800 인게임 9.5');
+  }
+
+  if(message.content == '!너튜브') {
+    message.reply('https://www.youtube.com/channel/UCN_dp1s662AQai4rNPcw0VA');
+  }
+
+  if(message.content == '!트위치') {
+    message.reply('https://www.twitch.tv/dkfqnfl11');
+  }
+
   if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
-    let img = 'https://cdn.discordapp.com/avatars/706496398140375050/5ca9a59aadf17ed193ef6d0224cc11d5.png?size=128';
+    let img = 'https://cdn.discordapp.com/icons/713394185562226738/98f93c6f77408cd150eee96da1cb8d03.webp?size=128';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
     embed.setColor('#186de6')
     embed.setAuthor('server info of 띠띰이 BOT', img)
@@ -82,7 +94,6 @@ client.on('message', (message) => {
     embed.setTimestamp()
     message.channel.send(embed);
   }
-
 
   else if(message.content.startsWith('!청소')) {
     if(message.channel.type == 'dm') {
