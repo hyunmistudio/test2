@@ -64,9 +64,7 @@ client.on('message', (message) => {
     message.reply('https://www.twitch.tv/dkfqnfl11');
   }
 
-  if(message.content == '!장비') {
-    message.reply('라이젠 1700/ gtx1070 / Ram 16gb / ssd120 / hdd 1tb / 뷰소닉 XG2401 144hz');
-  }
+
 
   if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
@@ -98,7 +96,25 @@ client.on('message', (message) => {
     embed.setTimestamp()
     message.channel.send(embed);
   }
+  if(message.content == '!embed') {
+    let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
+    let embed = new Discord.RichEmbed()
+      .setTitle('타이틀')
+      .setURL('http://www.naver.com')
+      .setAuthor('나긋해', img, 'http://www.naver.com')
+      .setThumbnail(img)
+      .addBlankField()
+      .addField('Inline field title', 'Some value here')
+      .addField('Inline field title', 'Some value here', true)
+      .addField('Inline field title', 'Some value here', true)
+      .addField('Inline field title', 'Some value here', true)
+      .addField('Inline field title', 'Some value here1\nSome value here2\nSome value here3\n')
+      .addBlankField()
+      .setTimestamp()
+      .setFooter('나긋해가 만듬', img)
 
+    message.channel.send(embed)
+  }
   else if(message.content.startsWith('!청소')) {
     if(message.channel.type == 'dm') {
       return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
