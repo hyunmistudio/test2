@@ -96,19 +96,19 @@ client.on('message', (message) => {
     embed.setTimestamp()
     message.channel.send(embed);
   }
-  if(message.content == '!embed') {
-    let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
+  if(message.content == '!프로필') {
+    let img = 'https://cdn.discordapp.com/icons/713394185562226738/98f93c6f77408cd150eee96da1cb8d03.webp?size=256';
     let embed = new Discord.RichEmbed()
-      .setTitle('타이틀')
-      .setURL('http://www.naver.com')
-      .setAuthor('현미', img, 'http://www.naver.com')
+      .setTitle('프로필')
+      .setURL('https://www.youtube.com/channel/UCN_dp1s662AQai4rNPcw0VA')
+      .setAuthor('시심이', img, 'https://www.twitch.tv/dkfqnfl11')
       .setThumbnail(img)
       .addBlankField()
-      .addField('Inline field title', 'Some value here')
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here1\nSome value here2\nSome value here3\n')
+      .addField('본명', '이상제')
+      .addField('소속', '롤큐', true)
+      .addField('잘하는 영웅', '탱커를 제외한 다른 영웅들', true)
+      .addField('구독자 애칭', '심청이', true)
+      .addField('업적', '前 시메트라 장인\現 모이라 장인\前 방구석 타이탄즈 뱃살\정크랫 원챔 도전중\n')
       .addBlankField()
       .setTimestamp()
       .setFooter('현미가 만듬', img)
