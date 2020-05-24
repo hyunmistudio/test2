@@ -39,7 +39,7 @@ client.on("message", async message => {
     var rper = Math.floor(Math.random()*2);
 
     if (te < 4) {
-      message.channel.send("!사다리 변수1 변수2 로 입력해주세요.")
+      message.channel.send("!사다리 시심1 시심2 로 입력해주세요.")
       return;
     }
 if (rper == 0) {
