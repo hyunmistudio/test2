@@ -29,6 +29,30 @@ client.on("guildMemberAdd", (member) => {
 //   byeChannel.send(`<@${deleteUser.id}> ${byeChannelComment}\n`);
 // });
 
+client.on("message", async message => {
+  if(message.author.bot) return
+
+  if(message.content.startsWith('!사다리')) {
+    message.channel.send("추첨중...")
+    var te = message.content.substring(4)
+    var text2 = message.content.split(' ');
+    var rper = Math.floor(Math.random()*2);
+
+    if (te < 4) {
+      message.channel.send("!사다리 변수1 변수2 로 입력해주세요.")
+      return;
+    }
+if (rper == 0) {
+  message.channel.send("사다리 추첨 결과는"+text2[1]+"입니다.")
+}
+
+if (rper == 1) {
+  message.channel.send("사다리 추첨 결과는"+text2[2]+"입니다.")
+}
+
+  }
+})
+
 client.on('message', (message) => {
   if(message.author.bot) return;
 
@@ -63,8 +87,10 @@ client.on('message', (message) => {
   if(message.content == '!트위치') {
     message.reply('https://www.twitch.tv/dkfqnfl11');
   }
-
-
+ 
+  if(message.content == '!인성') {
+    message.reply('인성갓 스트리머 시시미 :O');
+  }
 
   if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
