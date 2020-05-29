@@ -39,21 +39,26 @@ client.on("message", async message => {
     var rper = Math.floor(Math.random()*2);
 
     if (te < 4) {
-      message.channel.send("!사다리 시심1 시심2 로 입력해주세요.")
+      message.channel.send("!뽑기 시심1 시심2 로 입력해주세요.")
       return;
     }
 if (rper == 0) {
-  message.channel.send("사다리 추첨 결과는"+text2[1]+"입니다.")
+  message.channel.send("뽑기 결과는"+text2[1]+"입니다.")
 }
 
 if (rper == 1) {
-  message.channel.send("사다리 추첨 결과는"+text2[2]+"입니다.")
+  message.channel.send("뽑기 결과는"+text2[2]+"입니다.")
 }
 
   }
 })
 
 client.on('message', (message) => {
+
+  if(message.content.startsWith('!핑')) {
+    message.channel.send(client.ping + ' ms')
+  }
+
   if(message.author.bot) return;
 
   if(message.content == '심바') {
