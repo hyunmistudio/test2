@@ -97,7 +97,7 @@ client.on('message', (message) => {
     message.reply('인성갓 스트리머 시시미 :O');
   }
 
-  if(message.content == '!조준선') {
+  if(message.content == '!모이라조준선') {
     message.reply('원 및 십자선/색상 초록/굵기 1/십자선 길이 9/중앙공간 43/ 불투명도 100/ 윤곽선 불투명도 100/ 점크기 3/점 불투명도 100');
   }
 
