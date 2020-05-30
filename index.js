@@ -97,6 +97,18 @@ client.on('message', (message) => {
     message.reply('인성갓 스트리머 시시미 :O');
   }
 
+  if(message.content == '!조준선') {
+    message.reply('원 및 십자선/색상 초록/굵기 1/십자선 길이 9/중앙공간 43/ 불투명도 100/ 윤곽선 불투명도 100/ 점크기 3/점 불투명도 100');
+  }
+
+  if(message.content == '!둠상필') {
+    message.reply('야타: 거 너무한거 아니요?');
+  }
+
+  if(message.content == '!대깨옵') {
+    message.reply('대가리가 깨져도 오버워치!');
+  }
+
   if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
     let img = 'https://cdn.discordapp.com/icons/713394185562226738/98f93c6f77408cd150eee96da1cb8d03.webp?size=128';
