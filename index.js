@@ -8,7 +8,7 @@ const welcomeChannelComment = "(아/야) 새로운 심청이는 언제나 환영
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: 'My name name is 띠띰이 YAS~' }, status: 'online' })
+  client.user.setPresence({ game: { name: 'My name is 띠띰이 YAS~' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
