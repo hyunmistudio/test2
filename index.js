@@ -8,7 +8,7 @@ const welcomeChannelComment = "(아/야) 새로운 심청이는 언제나 환영
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '우헤헤헤헤헿' }, status: 'online' })
+  bot.user.setActivity('시심이 트위치', { type:"STREAMING"})
 });
 
 client.on("guildMemberAdd", (member) => {
