@@ -158,6 +158,14 @@ client.on('message', (message) => {
     message.reply('대가리가 깨져도 오버워치!');
   }
 
+  if(message.content == '띠띰아') {
+    message.reply('띠띰이 슝~하고 도착!');
+  }
+
+  if(message.content == '띠띰아 사랑해') {
+    message.reply('저도요~♥');
+  }
+
   if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
     let img = 'https://cdn.discordapp.com/icons/713394185562226738/98f93c6f77408cd150eee96da1cb8d03.webp?size=128';
