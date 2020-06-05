@@ -31,7 +31,7 @@ client.on("guildMemberAdd", (member) => {
 
 client.on("message", async message => {
 
-  if(command === "!킥") {
+  if(message.content === '!킥') {
     // This command must be limited to mods and admins. In this example we just hardcode the role names.
     // Please read on Array.some() to understand this bit: 
     // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
@@ -59,7 +59,7 @@ client.on("message", async message => {
 
   }
   
-  if(command === "!ban") {
+  if(message.content === '!킥') {
     // Most of this command is identical to kick, except that here we'll only let admins do it.
     // In the real world mods could ban too, but this is just an example, right? ;)
     if(!message.member.roles.some(r=>["Administrator"].includes(r.name)) )
