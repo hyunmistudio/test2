@@ -101,57 +101,6 @@ client.on('message', (message) => {
     message.reply('저도요~♥');
   }
 
-  if(message.content.startsWith('!사다리')) {
-    message.channel.send("추첨중...")
-    var te = message.content.substring(4)
-    var text2 = message.content.split(' ');
-    var rper = Math.floor(Math.random()*2);
-
-    if (te < 4) {
-      message.channel.send("!뽑기 시심1 시심2 로 입력해주세요.")
-      return;
-    }
-if (rper == 0) {
-  message.channel.send("뽑기 결과는"+text2[1]+"입니다.")
-}
-
-if (rper == 1) {
-  message.channel.send("뽑기 결과는"+text2[2]+"입니다.")
-}
-
-  }
-  
-  if(message.content == '!서버정보') {
-    let embed = new Discord.RichEmbed()
-    let img = 'https://cdn.discordapp.com/icons/713394185562226738/98f93c6f77408cd150eee96da1cb8d03.webp?size=128';
-    var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
-    embed.setColor('#36EAFD')
-    embed.setAuthor('server info of 띠띰이 BOT', img)
-    embed.setFooter(`띠띰이 ❤️`)
-    embed.addBlankField()
-    embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
-    embed.addField('running time', `${duration}`, true);
-    embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
-    embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
-   // embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
-    embed.addField('Discord.js',   `v${Discord.version}`, true);
-    embed.addField('Node',         `${process.version}`, true);
-    
-    let arr = client.guilds.array();
-    let list = '';
-   list = `\`\`\`css\n`;
-
-  for(let i=0;i<arr.length;i++) {
-      // list += `${arr[i].name} - ${arr[i].id}\n`
-      list += `${arr[i].name}\n`
-    }
-    list += `\`\`\`\n`
-    embed.addField('list:',        `${list}`);
-
-    embed.setTimestamp()
-    message.channel.send(embed);
-  }
-
   if(message.content == '!프로필') {
     let img = 'https://cdn.discordapp.com/icons/713394185562226738/98f93c6f77408cd150eee96da1cb8d03.webp?size=256';
     let embed = new Discord.RichEmbed()
@@ -167,7 +116,7 @@ if (rper == 1) {
       .addField('업적', '前 시메트라 장인\,現 모이라 장인\,前 방구석 타이탄즈 뱃살\,정크랫 원챔 도전중\n')
       .addBlankField()
       .setTimestamp()
-      .setFooter('현미가 만듬', img)
+      .setFooter('현미가 수정', img)
 
     message.channel.send(embed)
   }
