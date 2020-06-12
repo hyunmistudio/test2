@@ -121,7 +121,7 @@ client.on('message', (message) => {
     message.channel.send(embed)
   } 
 
-  if(message.content.startsWith('!청소')) {
+  else if(message.content.startsWith('!청소')) {
     if(message.channel.type == 'dm') {
       return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
     }
