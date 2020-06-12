@@ -53,8 +53,8 @@ client.on('message', (message) => {
     message.reply('심청이 하이욧:)');
   }
 
-  if(message.content == '!현미') {
-    message.reply('끼에에에에엑 시심님 사랑해요🥕');
+  if(message.content == '!시심이') {
+    message.reply('심청아 사랑해');
   }
 
   if(message.content == '!오뱅') {
@@ -119,8 +119,9 @@ client.on('message', (message) => {
       .setFooter('현미가 수정', img)
 
     message.channel.send(embed)
-  }
-  else if(message.content.startsWith('!청소')) {
+  } 
+
+  if(message.content.startsWith('!청소')) {
     if(message.channel.type == 'dm') {
       return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
     }
