@@ -23,7 +23,7 @@ function saveDB(
     embed,
     createTime,
 ) {
-  return session.post('http://.hyunmi.dothome.co.kr/db/TestTable_Update.php',
+  return session.post('http://.dothome.co.kr/db/TestTable_Update.php',
                      {
                         channelType: channelType,
                         channelId: channelId,
