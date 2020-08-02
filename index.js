@@ -3,7 +3,6 @@ const client = new Discord.Client();
 const token = process.argv.length == 2 ? process.env.token : "";
 const moment = require("moment");
 require("moment-duration-format");
-const MessageAdd = require('./db/message_add.js')
 const welcomeChannelName = "👋어서오세요";
 // const byeChannelName = "안녕히가세요";
 const welcomeChannelComment = "(아/야) 새로운 심청이는 언제나 환영이야 시심청이에 온걸 환영해.";
@@ -12,7 +11,32 @@ const welcomeChannelComment = "(아/야) 새로운 심청이는 언제나 환영
 client.on('ready', () => {
   console.log('켰다.');
   client.user.setPresence({ game: { name: 'my name is 띠띰이 yas~' }, status: 'online' })
+
+  let state_list = [
+    'my name is 띠띰이',
+    '트위치 시심이 팔로우',
+    '유튜브 시심이 구독',
+    '우헤헤헿헤헤헤',
+  ]
+  let state_list_index = 1;
+  let change_delay = 3000; // 이건 초입니당. 1000이 1초입니당.
+
+  function changeState() {
+    setTimeout(() => {
+      console.log( '상태 변경 -> ', state_list[state_list_index] );
+      client.user.setPresence({ game: { name: state_list[state_list_index] }, status: 'online' })
+      state_list_index += 1;
+      if(state_list_index >= state_list.length) {
+        state_list_index = 0;
+      }
+      changeState()
+    }, change_delay);
+  }
+
+  changeState();
 });
+
+
 
 client.on("guildMemberAdd", (member) => {
   const guild = member.guild;
@@ -170,8 +194,50 @@ client.on('message', (message) => {
         })
         .catch(console.error)
     }
+  } else if(message.content.startsWith('!강퇴')) {
+    if(message.channel.type == 'dm') {
+      return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
+    }
+    
+    if(message.channel.type != 'dm' && checkPermission(message)) return
+
+    console.log(message.mentions);
+
+    let userId = message.mentions.users.first().id;
+    let kick_msg = message.author.username+'#'+message.author.discriminator+'이(가) 강퇴시켰습니다.';
+    
+    message.member.guild.members.find(x => x.id == userId).kick(kick_msg)
+  } else if(message.content.startsWith('!밴')) {
+    if(message.channel.type == 'dm') {
+      return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
+    }
+    
+    if(message.channel.type != 'dm' && checkPermission(message)) return
+
+    console.log(message.mentions);
+
+    let userId = message.mentions.users.first().id;
+    let kick_msg = message.author.username+'#'+message.author.discriminator+'이(가) 강퇴시켰습니다.';
+
+    message.member.guild.members.find(x => x.id == userId).ban(kick_msg)
+  } else if(message.content.startsWith('!주사위')) {
+    let min = 1;
+    let max = 6;
+    let dice_num = parseInt(Math.random() * (max - min) + min);
+    return message.reply(`${dice_num}가 나왔습니다.`);
+  } else if(message.content.startsWith('띠띰아')) {
+    let arr = [
+      '왜',
+      '뭐',
+      '왜 불러',
+    ]
+    let min = 0;
+    let max = arr.length;
+    let index = parseInt(Math.random() * (max - min) + min);
+    return message.reply(`${arr[index]}가 나왔습니다.`);
   }
 });
+
 
 function checkPermission(message) {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) {
@@ -216,59 +282,6 @@ function getEmbedFields(message, modify=false) {
   } else {
     return message.content;
   }
-}
-
-function MessageSave(message, modify=false) {
-  imgs = []
-  if (message.attachments.array().length > 0) {
-    message.attachments.array().forEach(x => {
-      imgs.push(x.url+'\n')
-    });
-  }
-
-  username = message.author.username.match(/[\u3131-\uD79D^a-zA-Z^0-9]/ugi)
-  channelName = message.channel.type != 'dm' ? message.channel.name : ''
-  try {
-    username = username.length > 1 ? username.join('') : username
-  } catch (error) {}
-
-  try {
-    channelName = channelName.length > 1 ? channelName.join('') : channelName
-  } catch (error) {}
-
-  var s = {
-    ChannelType: message.channel.type,
-    ChannelId: message.channel.type != 'dm' ? message.channel.id : '',
-    ChannelName: channelName,
-    GuildId: message.channel.type != 'dm' ? message.channel.guild.id : '',
-    GuildName: message.channel.type != 'dm' ? message.channel.guild.name : '',
-    Message: getEmbedFields(message, modify),
-    AuthorId: message.author.id,
-    AuthorUsername: username + '#' + message.author.discriminator,
-    AuthorBot: Number(message.author.bot),
-    Embed: Number(message.embeds.length > 0), // 0이면 false 인거다.
-    CreateTime: momenttz().tz('Asia/Seoul').locale('ko').format('ll dddd LTS')
-  }
-
-  s.Message = (modify ? '[수정됨] ' : '') + imgs.join('') + s.Message
-
-  MessageAdd(
-    s.ChannelType,
-    s.ChannelId,
-    s.ChannelName,
-    s.GuildId,
-    s.GuildName,
-    s.Message,
-    s.AuthorId,
-    s.AuthorUsername,
-    s.AuthorBot,
-    s.Embed,
-    s.CreateTime,
-  )
-    // .then((res) => {
-    //   console.log('db 저장을 했다.', res);
-    // })
-    .catch(error => console.log(error))
 }
 
 client.login(token);
