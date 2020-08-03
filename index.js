@@ -13,13 +13,13 @@ client.on('ready', () => {
   client.user.setPresence({ game: { name: 'my name is 띠띰이 yas~' }, status: 'online' })
 
   let state_list = [
-    'my name is 띠띰이',
+    '허허허허헣ㅎ',
     '트위치 시심이 팔로우',
     '유튜브 시심이 구독',
     '우헤헤헿헤헤헤',
   ]
   let state_list_index = 1;
-  let change_delay = 3000; // 이건 초입니당. 1000이 1초입니당.
+  let change_delay = 4000; // 이건 초입니당. 1000이 1초입니당.
 
   function changeState() {
     setTimeout(() => {
@@ -70,11 +70,11 @@ client.on('message', (message) => {
 
   if(message.content == '블르르르를르ㅡ르르를') {
     let embed = new Discord.RichEmbed()
-    let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
+    let img = 'https://cdn.discordapp.com/icons/713394185562226738/98f93c6f77408cd150eee96da1cb8d03.webp?size=128';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
     embed.setColor('#186de6')
-    embed.setAuthor('server info of 콜라곰 BOT', img)
-    embed.setFooter(`콜라곰 BOT ❤️`)
+    embed.setAuthor('server info of 띠띰이', img)
+    embed.setFooter(`띠띰이❤️`)
     embed.addBlankField()
     embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
     embed.addField('running time', `${duration}`, true);
@@ -99,41 +99,39 @@ client.on('message', (message) => {
     message.channel.send(embed);
   }
 
-  if(message.content == '!블라블라') {
-    let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
+  if(message.content == '!프로필') {
+    let img = 'https://cdn.discordapp.com/icons/713394185562226738/98f93c6f77408cd150eee96da1cb8d03.webp?size=128';
     let embed = new Discord.RichEmbed()
-      .setTitle('타이틀')
-      .setURL('http://www.naver.com')
-      .setAuthor('나긋해', img, 'http://www.naver.com')
+      .setTitle('시심이')
+      .setURL('https://www.youtube.com/channel/UCN_dp1s662AQai4rNPcw0VA')
+      .setAuthor('트위치', img, 'https://www.twitch.tv/dkfqnfl11')
       .setThumbnail(img)
       .addBlankField()
-      .addField('Inline field title', 'Some value here')
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here1\nSome value here2\nSome value here3\n')
+      .addField('본명', '이상제')
+      .addField('소속', '롤큐', true)
+      .addField('방송특징', '미모기반 게임방송', true)
+      .addField('최고점수', '4400+', true)
+      .addField('여담', '감도는 DPI 800 인게임 9.5로 EDPI 7600을 쓴다고 한다.\2020년 상반기 겐지 원챔으로 벤쿠버 타이탄즈 서브딜러 준비중 (아마 평생 준비만할듯)\용가리치킨을 좋아한다고 한다.')
       .addBlankField()
       .setTimestamp()
-      .setFooter('나긋해가 만듬', img)
+      .setFooter('현미_#8997', img)
 
     message.channel.send(embed)
-  } else if(message.content == '블라블라라랄라') {
+  } else if(message.content == '!help') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
-      {name: '!help', desc: 'help'},
+      {name: '!help', desc: '도움말'},
       {name: 'ping', desc: '현재 핑 상태'},
-      {name: 'embed', desc: 'embed 예제1'},
+      {name: '!프로필', desc: '시심이 프로필'},
       {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
-      {name: '!전체공지2', desc: 'dm으로 전체 embed 형식으로 공지 보내기'},
       {name: '!청소', desc: '텍스트 지움'},
-      {name: '!초대코드', desc: '해당 채널의 초대 코드 표기'},
-      {name: '!초대코드2', desc: '봇이 들어가있는 모든 채널의 초대 코드 표기'},
+      {name: '!초대코드', desc: '시심청이 초대코드'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
-      .setAuthor('Help of 콜라곰 BOT', helpImg)
+      .setAuthor('Help of 띠띰이', helpImg)
       .setColor('#186de6')
-      .setFooter(`콜라곰 BOT ❤️`)
+      .setFooter(`띠띰이❤️`)
       .setTimestamp()
     
     commandList.forEach(x => {
