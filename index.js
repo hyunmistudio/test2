@@ -13,13 +13,13 @@ client.on('ready', () => {
   client.user.setPresence({ game: { name: 'my name is 띠띰이 yas~' }, status: 'online' })
 
   let state_list = [
-    '허허허허헣ㅎ',
+    '허허허허헣',
     '트위치 시심이 팔로우',
     '유튜브 시심이 구독',
     '우헤헤헿헤헤헤',
   ]
   let state_list_index = 1;
-  let change_delay = 4000; // 이건 초입니당. 1000이 1초입니당.
+  let change_delay = 3000; // 이건 초입니당. 1000이 1초입니당.
 
   function changeState() {
     setTimeout(() => {
@@ -68,7 +68,7 @@ client.on('message', (message) => {
   }
 
 
-  if(message.content == '블르르르를르ㅡ르르를') {
+  if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
     let img = 'https://cdn.discordapp.com/icons/713394185562226738/98f93c6f77408cd150eee96da1cb8d03.webp?size=128';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
