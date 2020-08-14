@@ -67,6 +67,13 @@ client.on('message', (message) => {
     return message.reply('심청이 바바룽 굿밤>_<');
   }
 
+  if(message.content == '!모이라 조준선') {
+    return message.reply('추가해야함');
+  }
+
+  if (message.content == '시하') {
+    message.channel.send('오~~ {user.mention}님~♥ (´･ω･`)');
+  }
 
   if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
